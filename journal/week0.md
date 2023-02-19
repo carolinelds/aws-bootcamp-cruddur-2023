@@ -21,13 +21,19 @@ I need to present a technical report for the investors detailing the proposed ar
 
 ### 2.0 Basic AWS Account configuration
 
-I added MFA to my root account, then created a user group with AdministratorAccess policy attached. Then I added a new IAM user in this group to use along the bootcamp and added MFA to this user as well. 
+I added MFA to my root account, then created a user group with AdministratorAccess policy attached. Then I added a new IAM user in this group to use along the bootcamp and added MFA to this user as well:
 
-### 2.1 Budget and billing
+![IAM user with MFA](./assets/00-iam-user.png)
 
-At first I had trouble configuring Billing and Budget access to my IAM user. Then I discovered that giving the permissions with policies is not enough: one also needs to [activate user access to Billing and Cost Management directly on root Account page](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_billing.html?icmpid=docs_iam_console#tutorial-billing-step1). And finally I discovered I did it "wrong", because Budget and Billing should ideally be kept on root account only, for security reasons. So I had to undo the previous permissions for my IAM user.
+### 2.1 Budget
 
-On my root account, I created two budgets: a zero spending budget to try to keep myself in free tier as much as possible, and a montly cost budget of U$ 5.00 to watch for my credits:
+At first I had trouble configuring Billing and Budget access to my IAM user. Then I discovered that giving the permissions with policies is not enough: one also needs to [activate user access to Billing and Cost Management directly on root Account page](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_billing.html?icmpid=docs_iam_console#tutorial-billing-step1). 
+
+So at the end, I have two user groups: Admin with AdministratorAccess policy, and BudgetAndBilling group with Billing and AWSBudgetsActionsWithAWSResourceControlAccess policies attached. Now my principal user is in both groups:
+
+![User added to new group](./assets/00-iam-user-new-group.png)
+
+I then created two budgets: a zero spending budget to try to keep myself in free tier as much as possible, and a montly cost budget of U$ 5.00 to watch for my credits:
 
 ![Created budgets](./assets/00-budget.png)
 
@@ -47,8 +53,12 @@ gp env AWS_DEFAULT_REGION=
 
 And then I updated the .gitpod.yml to install AWS CLI as instructed.
 
+### 2.3 Budget and Billing Alarm with AWS CLI
 
-### 2.3 CloudShell
+First, I enabled billing alerts on my root account.
+
+
+### 2.4 CloudShell
 
 I accessed it and used the following commands:
 ```
