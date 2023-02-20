@@ -104,3 +104,8 @@ After I draw the logical diagram on Lucid Charts using [AWS architecture icons](
 
 ### 2.0 More AWS Account Configuration
 
+On my root account I created an organization and then added some SCPs (Service Control Policies) to improve its security (see result in image below). I used the [templates from @hashishrajan](https://github.com/hashishrajan/aws-scp-best-practice-policies), one of our instructors.
+
+![Applied SCPs](./assets/00-scps.png)
+
+I also went to configure a trail in CloudTrail to enable better security auditting. However, I deleted it since a new trail was not really needed for the bootcamp: [CloudTrail by default is enabled on every AWS account when we create it, and by default it already stores the past 90 days of activities](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html) - and that is basically what I need, without the risk of surpassing free-tier.
