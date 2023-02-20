@@ -89,13 +89,18 @@ After noticing the flag --cli-auto-prompt is only valid for the next command, I 
 export AWS_CLI_AUTO_PROMPT=on
 ```
 
-### 2.4 Conceptual architecture diagram 
+### 2.4 Architecture diagrams
 
+First we have the conceptual diagram on something better than a napkin: a coffee filter =)
+
+![Napkin challenge acepted on coffee filter](./assets/00-napkin-conceptual-architecture.jpg)
+
+After I draw the logical diagram on Lucid Charts using [AWS architecture icons](https://aws.amazon.com/pt/architecture/icons/) (the PowerPoint with guidelines is just great!). The link to visualize is [here](https://lucid.app/lucidchart/f21007ac-66e4-49f3-8413-8ccb27a347cd/edit?viewport_loc=-59%2C74%2C1894%2C831%2C0_0&invitationId=inv_bc32d031-7b29-4936-a617-8c72b2a8b88c), and below there is a print:
+
+![Logical diagram](./assets/00-logical-diagram.png)
 
 ## 2 - Homework Stretch Assignments
 
 
 ### 2.0 More AWS Account Configuration
-
-
 
