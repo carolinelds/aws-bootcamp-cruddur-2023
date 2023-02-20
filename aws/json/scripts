@@ -1,6 +1,8 @@
 aws sns create-topic --name billing-alarm
 
 aws sns subscribe \
-    --topic-arn="arn:aws:sns:us-east-1:***REMOVED***:billing-alarm" \
+    --topic-arn=$ARN_TOPIC \
     --protocol=email \
     --notification-endpoint=***REMOVED***
+
+aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/billing_alarm_config.json

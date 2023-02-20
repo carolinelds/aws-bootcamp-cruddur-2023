@@ -53,10 +53,26 @@ gp env AWS_DEFAULT_REGION=
 
 And then I updated the .gitpod.yml to install AWS CLI as instructed.
 
-### 2.3 Budget and Billing Alarm with AWS CLI
+### 2.3 Billing Alarm with AWS CLI
 
-First, I enabled billing alerts on my root account.
+First, I enabled billing alerts on my root account. Then I created an SNS topic, verified the endpoint and then created an alarm. The following were the used commands:
 
+```
+aws sns create-topic --name billing-alarm
+
+aws sns subscribe \
+    --topic-arn="arn:aws:sns:us-east-1:<account-id>:billing-alarm" \
+    --protocol=email \
+    --notification-endpoint=***REMOVED***
+
+aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/billing_alarm_config.json
+```
+
+And the result:
+
+![SNS Topic created](./assets/00-sns-topic.png)
+
+![Billing alarm created](./assets/00-aws-billing-alarm.png)
 
 ### 2.4 CloudShell
 
