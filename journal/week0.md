@@ -51,7 +51,7 @@ gp env AWS_SECRET_ACCESS_KEY=
 gp env AWS_DEFAULT_REGION=
 ```
 
-And then I updated the .gitpod.yml to install AWS CLI as instructed.
+And then I updated the .gitpod.yml to install AWS CLI as instructed, link [here](https://github.com/carolinelds/aws-bootcamp-cruddur-2023/blob/main/.gitpod.yml). I had an issue related to the AWS CLI not being installed when restarting the Gitpod workspace, however I solved it after reading the [documentation](https://www.gitpod.io/docs/configure/workspaces/tasks#restart-a-workspace): I had to delete and create a new workspace in order for the init task to be executed.
 
 ### 2.3 Billing Alarm with AWS CLI
 
