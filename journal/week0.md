@@ -63,7 +63,7 @@ aws sns create-topic --name billing-alarm
 aws sns subscribe \
     --topic-arn="arn:aws:sns:us-east-1:<account-id>:billing-alarm" \
     --protocol=email \
-    --notification-endpoint=carolinelds@gmail.com
+    --notification-endpoint=<my-email>
 
 aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/billing_alarm_config.json
 ```
