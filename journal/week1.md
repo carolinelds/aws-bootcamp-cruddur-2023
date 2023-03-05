@@ -32,7 +32,7 @@ git reflog expire --expire=now --all && git gc --prune=now --aggressive
 git push
 ```
 
-There was a commit protected by 'HEAD' that referenced two "dirty" files, so I made a new commit removing the sensitive data, and the run BFG to replace text again. It changed the following files:
+There was a commit protected by 'HEAD' that referenced two "dirty" files, so I made a new commit removing the sensitive data, and the run BFG to replace text again. It changed the following files history:
 
 ![Sample of BFG run](./assets/01-bfg-run.png)
 
